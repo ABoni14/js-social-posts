@@ -56,3 +56,43 @@ const posts = [
     }
 ];
 
+const container = document.getElementById("container");
+generateCardSocial(posts);
+
+function generateCardSocial(oggetto){
+    for (let index in oggetto){
+      container.innerHTML +=
+       `
+        <div class="post">
+            <div class="post__header">
+            <div class="post-meta">                    
+                <div class="post-meta__icon"> 
+                <img class="profile-pic" src="${oggetto[index].author.image}" alt="${oggetto[index].name}">                    
+                </div>
+                <div class="post-meta__data">
+                <div class="post-meta__author">${oggetto[index].author.name}</div>
+                <div class="post-meta__time">DA SOSTITUIRE CON FUNZIONE DATA</div>
+                </div>                    
+            </div>
+            </div>
+            <div class="post__text">${oggetto[index].content}</div>
+            <div class="post__image">
+            <img src="${oggetto[index].media}" alt="">
+            </div>
+            <div class="post__footer">
+            <div class="likes js-likes">
+                <div class="likes__cta">
+                <a class="like-button  js-like-button" href="#" data-postid="1">
+                    <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                    <span class="like-button__label">Mi Piace</span></a>
+                    </div>
+                <div class="likes__counter">
+                    Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                </div>
+            </div> 
+            </div>      
+        `;
+    }
+  
+}
+  
